@@ -1,19 +1,22 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '../pages/Home'
-import Help from '../pages/Help'
-import Courseware from '../pages/Courseware'
-import Download from '../pages/Download'
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
 
 Vue.use(Router)
+Vue.use(ElementUI);
+
+import Home from '../pages/Home.vue'
+import Help from '../pages/Help.vue'
+import Courseware from '../pages/Courseware.vue'
+import Download from '../pages/Download.vue'
 
 export default new Router({
-  
+  mode:'history',
   routes: [
     {
-      path: '/',
-      name: 'home',
-      component: Home
+      path: '*',
+      redirect:'/home'
     },
     {
       path: '/home',
@@ -22,17 +25,17 @@ export default new Router({
     },
     {
       path: '/help',
-      name: 'Help',
+      name: 'help',
       component: Help
     },
     {
       path: '/courseware',
-      name: 'Courseware',
+      name: 'courseware',
       component: Courseware
     },
     {
       path: '/download',
-      name: 'Download',
+      name: 'download',
       component: Download
     },
   ]

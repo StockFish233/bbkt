@@ -3,10 +3,10 @@
     <div class="nav-box">
       <img class="logo" src="../assets/logo.png" alt="logo">
       <a href="#" target="_blank" class="right login">登录</a>
-      <a href="../pages/Help.vue" class="right">帮助</a>
-      <a href="../pages/Download.vue" class="right">下载</a>
-      <a href="../pages/Courseware.vue" class="right">课件</a>
-      <a href="../pages/Home.vue" class="right active">首页</a>
+      <router-link to="/help" class="right">帮助</router-link>
+		  <router-link to="/download" class="right">下载</router-link>
+      <router-link to="/courseware" class="right">课件</router-link>
+		  <router-link to="/home" class="right">首页</router-link>
     </div>
 </div>
 </template>
@@ -24,7 +24,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .nav {
     position: fixed;
     width: 100%;
@@ -58,12 +58,8 @@ export default {
     line-height: 30px;
     text-decoration: none;
     color: #9B9B9B;
-  }
-  .nav .box a {
-    color: #9B9B9B;
     display: inline-block;
     text-align: center;
-    border-radius: 5px;
   }
 
 </style>

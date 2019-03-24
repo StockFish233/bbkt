@@ -1,7 +1,7 @@
 <template>
     <div>
-        <h1>帮助</h1>
         <v-header></v-header>
+        <h1>帮助</h1>
     </div>
 </template>
 
