@@ -1,18 +1,20 @@
 <template>
-  <div id="nav" class="nav">
+  <div id="nav" class="nav" >
     <div class="nav-box">
-      <img class="logo" src="../assets/logo.png" alt="logo">
-      <a href="#" target="_blank" class="right login">登录</a>
-      <router-link to="/help" class="right">帮助</router-link>
-		  <router-link to="/download" class="right">下载</router-link>
-      <router-link to="/courseware" class="right">课件</router-link>
-		  <router-link to="/home" class="right">首页</router-link>
+      <img class="logo" src="../assets/logo.png" alt="logo">      
+      <el-button type="primary" size="medium" class="right">
+        <a href="/login" target="_blank" style="text-decoration: none;color:#fff;">登录</a>
+      </el-button>
+      <router-link to="/help" name="help" class="right">帮助</router-link>
+		  <router-link to="/download" name="download" class="right">下载</router-link>
+		  <router-link to="/home" name="home" class="right">首页</router-link>
     </div>
 </div>
 </template>
 
 <script>
 export default {
+  props:['activeName'],
   data () {
     return {
       
@@ -61,5 +63,10 @@ export default {
     display: inline-block;
     text-align: center;
   }
-
+  .nav .nav-box a:hover{
+    color: #fff;
+  }
+  .router-link-active{
+    color: rgb(231, 26, 26);
+  }
 </style>

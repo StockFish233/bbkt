@@ -7,6 +7,9 @@ const sourceMapEnabled = isProduction
   : config.dev.cssSourceMap
 
 module.exports = {
+  entry:{
+    app:["babel-polyfill","../src/main.js"],
+  },
   loaders: utils.cssLoaders({
     sourceMap: sourceMapEnabled,
     extract: isProduction

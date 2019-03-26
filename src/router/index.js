@@ -10,6 +10,7 @@ import Home from '../pages/Home.vue'
 import Help from '../pages/Help.vue'
 import Courseware from '../pages/Courseware.vue'
 import Download from '../pages/Download.vue'
+import Login from '../pages/Login.vue'
 
 export default new Router({
   mode:'history',
@@ -37,6 +38,11 @@ export default new Router({
       path: '/download',
       name: 'download',
       component: Download
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
     },
   ]
 })

@@ -1,79 +1,61 @@
 <template>
-  <el-carousel :interval="2000" indicator-position="none" id="el-carousel">
-    <el-carousel-item v-for="item in sliders" :key="index">
-      <img :src="item.img">
+  <el-carousel :interval="6000" type="card" height="480px" indicator-position="none">
+    <el-carousel-item v-for="(item,index) in news" :key="index" 
+      :class="{'is-active': index === activeIndex}">
+      <div class="new-box">
+        <a target="_blank" href="#">
+          <h2>{{item.title}}</h2>
+          <p>{{item.time}}</p>
+          <p>{{item.text}}</p>
+          <span>{{item.press}}</span>
+        </a>
+      </div>
     </el-carousel-item>
   </el-carousel>
 </template>
- 
- 
+
 <script>
   export default {
     data() {
       return {
-        sliders:[
-          {
-            img:'http://img.hb.aicdn.com/adbde61e4343dedd21e97ea7f22666825a8db7d077ffe-qn8Pjn_fw658'
-          },
-          {
-            img:'http://img.hb.aicdn.com/adeed7d28df6e776c2fa6032579c697381d1a82b7fe00-fwRqgn_fw658'
-          },
-          {
-            img:'http://img.hb.aicdn.com/ab7f48509b3c0353017d9a85ef1d12400c9b2724540d4-p3zouo_fw658'
-          },
-          {
-            img:'http://img.hb.aicdn.com/60f788fc2a846192f224b9e6d4904b30e54926211d3d67-ACFJ9G_fw658'
-          },
-          {
-            img:'http://img.hb.aicdn.com/22ded455284aab361b8d2056e82f74a891a019704296a-PSraEB_fw658'
-          },
-        ],
-        bannerHeight: 1000,
-        screenWidth: 1920,
- 
-      };
+        news:[
+          {title:'教学信息化必须面向教改实际1',time:'2016.5.6',text:'……清华大学宣布推出的智能教学工具——雨课堂，将PPT、MOOC、手机微信融为一体，预示着我国高校教学信息化将进入一个新的发展阶段，这个阶段的特征就是“互联网+黑板+移动终端”。',press:'人民日报'},
+          {title:'教学信息化必须面向教改实际2',time:'2016.5.6',text:'……清华大学宣布推出的智能教学工具——雨课堂，将PPT、MOOC、手机微信融为一体，预示着我国高校教学信息化将进入一个新的发展阶段，这个阶段的特征就是“互联网+黑板+移动终端”。',press:'人民日报'},
+          {title:'教学信息化必须面向教改实际3',time:'2016.5.6',text:'……清华大学宣布推出的智能教学工具——雨课堂，将PPT、MOOC、手机微信融为一体，预示着我国高校教学信息化将进入一个新的发展阶段，这个阶段的特征就是“互联网+黑板+移动终端”。',press:'人民日报'},
+        ]
+      }
     },
- 
-    mounted() {
- 
-      this.setSize1();
-      const that = this;
-      //监听浏览器窗口大小改变
-      window.addEventListener('resize', function() {
-        var width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-        that.screenWidth = width;
-        that.setSize();
-      }, false);
- 
-    },
-    methods: {
- 
-      setSize1: function() {
-        var width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-        this.screenWidth = width;
-        
- 
-      },
- 
-      setSize: function() {
-        this.bannerHeight = 1000 / 1920 * this.screenWidth - 50
-        document.getElementById('el-carousel').style.height = this.bannerHeight + 'px';
-      },
- 
-    }
- 
   }
 </script>
- 
- 
-<style>
-  .el-carousel__container {
-    height: 100% !important;
+
+<style scoped>
+  .el-carousel__item .new-box {
+    color: black;
+    font-size: 18px;
+    opacity: 0.75;
+    margin: 80px 60px;   
+    width: 460px;
   }
- 
-  img {
-    display: inline-block;
-    height: auto;
-    max-width: 100%;
+  
+  .el-carousel__item .new-box a{
+    text-decoration: none;
+    color: black;  
+  }
+
+  .el-carousel__item{
+    background-color: #d5d5e2;
+    box-shadow: 0 2px 6px #DCDFE6, 0 0 6px #DCDFE6
+  }
+  
+  .is-active {
+    background: #faf8f8;
+  }
+
+  .el-carousel__item .new-box a span{
+    font-size: 22px;
+  }
+
+  .el-carousel__item .new-box a p{
+    padding: 8px;
   }
 </style>
