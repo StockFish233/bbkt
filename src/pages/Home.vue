@@ -26,8 +26,8 @@
                     <el-col><h1>为你提供多种课堂互动方式</h1></el-col>
                 </el-row>
                 <el-row class="container">
-                    <el-col :span="6" v-for="(item, index) in icons1" :key="item.id" :offset="index > 0 ? 3 : 0">
-                        <el-card :body-style="{margin:'20px',padding: '20px' }">
+                    <el-col :span="6" v-for="(item, index) in icons1" :key="index" :offset="index > 0 ? 3 : 0">
+                        <el-card :body-style="{margin:'20px',padding: '20px' }" shadow="hover">
                             <img :src="item.img" class="icons">
                             <div style="padding: 14px;">
                                 <h3>{{item.title}}</h3>
@@ -37,8 +37,8 @@
                     </el-col>
                 </el-row>
                 <el-row class="container">
-                    <el-col :span="6" v-for="(item, index) in icons1" :key="item.id" :offset="index > 0 ? 3 : 0">
-                        <el-card :body-style="{margin:'20px', padding: '20px' }">
+                    <el-col :span="6" v-for="(item, index) in icons1" :key="index" :offset="index > 0 ? 3 : 0">
+                        <el-card :body-style="{margin:'20px', padding: '20px' }" shadow="hover">
                         <img :src="item.img" class="icons">
                         <div style="padding: 14px;">
                             <h3>{{item.title}}</h3>
@@ -83,18 +83,39 @@
         </el-row> 
 
         <el-row class="content4" type="flex" align="center">
-            <el-col class=new-content>
-            <v-slider></v-slider>
+            <el-col class="content-box">
+                <el-row style="margin-bottom:50px;">
+                    <el-col><h1>用户评价</h1></el-col>
+                </el-row>
+                <el-row>
+                    <el-tabs type="border-card">
+                        <el-tab-pane label="用户管理">用户管理</el-tab-pane>
+                        <el-tab-pane label="配置管理">配置管理</el-tab-pane>
+                        <el-tab-pane label="角色管理">角色管理</el-tab-pane>
+                        <el-tab-pane label="定时任务补偿">定时任务补偿</el-tab-pane>
+                    </el-tabs>
+                </el-row>
             </el-col>     
         </el-row>   
-        <v-footer></v-footer>
 
+        <el-row class="content5" type="flex" align="center">
+            <el-col class="new-content">
+                <el-row style="margin-bottom:50px;">
+                    <el-col><h1>新闻报告</h1></el-col>
+                </el-row>
+                <el-row>
+                    <v-slider></v-slider>
+                </el-row>
+            </el-col>     
+        </el-row>  
+
+        <v-footer></v-footer>
     </div>
 </template>
 
 <script>
 import Header from '../components/Header.vue'
-import Slider from '../components/Slider.vue'
+import NewsSlider from '../components/NewsSlider.vue'
 import Footer from '../components/Footer.vue'
 
 export default {
@@ -102,7 +123,7 @@ export default {
     components:{
         'v-header':Header,
         'v-footer':Footer,
-        'v-slider':Slider,
+        'v-slider':NewsSlider,
     },
     data(){
         return{
@@ -201,5 +222,6 @@ export default {
         margin-top: 80px;
         margin-bottom: 80px;
     }
+    
 </style>
 

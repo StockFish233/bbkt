@@ -5,16 +5,16 @@
       <el-button type="primary" size="medium" class="right">
         <a href="/login" target="_blank" style="text-decoration: none;color:#fff;">登录</a>
       </el-button>
-      <router-link to="/help" name="help" class="right">帮助</router-link>
-		  <router-link to="/download" name="download" class="right">下载</router-link>
-		  <router-link to="/home" name="home" class="right">首页</router-link>
+      <router-link to="/help" name="help" class="right" exact>帮助</router-link>
+		  <router-link to="/download" name="download" class="right" exact>下载</router-link>
+		  <router-link to="/home" name="home" class="right" exact>首页</router-link>
     </div>
 </div>
 </template>
 
 <script>
 export default {
-  props:['activeName'],
+  
   data () {
     return {
       
@@ -66,7 +66,7 @@ export default {
   .nav .nav-box a:hover{
     color: #fff;
   }
-  .router-link-active{
-    color: rgb(231, 26, 26);
+  .nav .nav-box .router-link-active{
+    color: rgb(248, 240, 240);
   }
 </style>

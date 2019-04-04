@@ -20,7 +20,7 @@
             </el-col>   
         </el-row> 
         <el-row class="content2"  type="flex" align="center">
-            <el-col class="content-box" >
+            <el-col class="update-log-content" >
                 <h1>升级日志</h1>
                 <el-row class="container">
                     <el-col :span="24" >
@@ -46,7 +46,7 @@ export default {
     },
     data(){
         return {
-            activeName: 'download',
+            
             
         };
     } 
@@ -70,17 +70,17 @@ export default {
         background-position: center top;
         min-width: 1170px;
     }
-    .content-box{
+    .update-log-content{
         position: relative;
         top: 100px;
         width: 100%;
-        max-width: 900px;
-        min-width: 900px;
+        max-width: 940px;
+        min-width: 940px;
         margin: 0 auto;  
         margin-top: 50px;   
         text-align: center;
     }
-    .content-box .container{
+    .update-log-content .container{
         margin:45px;
     }
     .tips{
