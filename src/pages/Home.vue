@@ -5,7 +5,7 @@
             <el-col  class="content-box">
                 <el-row 
                 style="font-size: 50px;color: #FFFFFF;padding: 80px 0 5px;">
-                    <el-col>让教学方式更丰富</el-col>
+                    <el-col>全景式的教学辅助，功能贯穿课前、课中、课后</el-col>
                 </el-row>  
                 <el-row style="top:40px">
                     <el-col>
@@ -37,7 +37,7 @@
                     </el-col>
                 </el-row>
                 <el-row class="container">
-                    <el-col :span="6" v-for="(item, index) in icons1" :key="index" :offset="index > 0 ? 3 : 0">
+                    <el-col :span="6" v-for="(item, index) in icons2" :key="index" :offset="index > 0 ? 3 : 0">
                         <el-card :body-style="{margin:'20px', padding: '20px' }" shadow="hover">
                         <img :src="item.img" class="icons">
                         <div style="padding: 14px;">
@@ -47,9 +47,9 @@
                         </el-card>
                     </el-col>
                 </el-row>
-            </el-col>  
-        </el-row>  
-
+            </el-col>                   
+        </el-row>     
+            
         <el-row class="content3" type="flex" align="center">
             <el-col  class="content-box" style="width:100%">
                 <el-row>
@@ -87,13 +87,13 @@
                 <el-row style="margin-bottom:50px;">
                     <el-col><h1>用户评价</h1></el-col>
                 </el-row>
-                <el-row>
-                    <el-tabs type="border-card">
-                        <el-tab-pane label="用户管理">用户管理</el-tab-pane>
-                        <el-tab-pane label="配置管理">配置管理</el-tab-pane>
-                        <el-tab-pane label="角色管理">角色管理</el-tab-pane>
-                        <el-tab-pane label="定时任务补偿">定时任务补偿</el-tab-pane>
-                    </el-tabs>
+                <el-row style="margin-bottom:20px;">
+                    <el-collapse v-model="activeNames" @change="handleChange" 
+                        v-for="(item,index) in evaluations" :key="item.id">
+                        <el-collapse-item :title="item.author" :name="index">
+                            <div>{{item.content}}</div>
+                        </el-collapse-item>
+                    </el-collapse>
                 </el-row>
             </el-col>     
         </el-row>   
@@ -130,38 +130,55 @@ export default {
             icons1:[
                 {
                     img:'../../static/images/icons/icon1.png',
-                    title:'多种课堂互动方式',
-                    note:'点赞，弹幕，在线点名，红包......使课堂互动更多样'
+                    title:'新增习题',
+                    note:'提供多种题型，批量导入'
                 },
                 {
                     img:'../../static/images/icons/icon2.png',
-                    title:'多种课堂互动方式',
-                    note:'点赞，弹幕，在线点名，红包......使课堂互动更多样'
+                    title:'课堂管理',
+                    note:'扫码签到、随机点名、开启直播、开启弹幕'
                 },
                 {
                     img:'../../static/images/icons/icon3.png',
-                    title:'多种课堂互动方式',
-                    note:'点赞，弹幕，在线点名，红包......使课堂互动更多样'
+                    title:'试卷管理',
+                    note:'创建手机屏幕大小的ppt页面'
                 },
             ],
             icons2:[
                 {
                     img:'../../static/images/icons/icon1.png',
-                    title:'多种课堂互动方式',
-                    note:'点赞，弹幕，在线点名，红包......使课堂互动更多样'
+                    title:'上传课件',
+                    note:'上传完成后可在我的课件库中查看'
                 },
                 {
                     img:'../../static/images/icons/icon2.png',
-                    title:'多种课堂互动方式',
-                    note:'点赞，弹幕，在线点名，红包......使课堂互动更多样'
+                    title:'发布公告',
+                    note:'向指定班级发送信息公告'
                 },
                 {
                     img:'../../static/images/icons/icon3.png',
-                    title:'多种课堂互动方式',
-                    note:'点赞，弹幕，在线点名，红包......使课堂互动更多样'
+                    title:'授课日志',
+                    note:'进行课堂记录，包括（签到情况、学生习题数据、课件数据）'
                 },
             ],
+            activeNames: [],
+            evaluations:[
+                {id:'1',author:'老师1',content:'百倍课堂的全景式的教学辅助，功能贯穿课前、课中、课后'},
+                {id:'2',author:'老师2',content:'它使用简便，功能强大，还可以记录整个教学过程。为老师的课堂授课提供 高效便利的支持。 使得往日沉闷的课堂变成以学生为中心的，非常有趣味性的互动课堂。'},
+            ]
         }
+    },
+    computed:{
+        activeNames:function(){
+            for(var i = 1;i <= this.evaluations.length;i++){
+                this.activeNames.push(i.toString())
+            }
+        }
+    },
+    methods: {
+      handleChange(val) {
+        console.log(val);
+      }
     }   
 }
 </script>
@@ -173,6 +190,7 @@ export default {
         top:0;
         box-sizing: border-box;
         background-color: burlywood;
+        font-size:22px;
     }
     .introduce-content{
         width:100%;
@@ -191,11 +209,11 @@ export default {
         min-width: 1170px;
         margin: 0 auto;
         text-align: center;
-        margin-top: 50px;
-        
+        margin-top: 45px;
+        margin-bottom: 45px;
     }
     .content-box .container{
-        margin:45px;
+        margin-top:45px;
     }
     .content-box .container .teacher-info{
         padding:30px;
@@ -219,9 +237,15 @@ export default {
         min-width: 1240px;
         margin: 0 auto;
         text-align: center;
-        margin-top: 80px;
-        margin-bottom: 80px;
+        margin-top: 45px;
+        margin-bottom: 45px;
     }
-    
+    .el-collapse-item__header{
+        font-size:22px;
+    }
+    .el-collapse-item__content{
+        font-size:20px;
+        text-align: left;
+    }
 </style>
 

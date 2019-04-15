@@ -21,22 +21,34 @@ export default new Router({
     {
       path: '/home',
       name: 'home',
-      component: Home
+      component: Home,
+      meta:{
+        title:'首页'
+      }
     },
     {
       path: '/help',
       name: 'help',
-      component: Help
+      component: Help,
+      meta:{
+        title:'帮助'
+      }
     },
     {
       path: '/download',
       name: 'download',
-      component: Download
+      component: Download,
+      meta:{
+        title:'下载'
+      }
     },
     {
       path: '/login',
       name: 'login',
-      component: Login
+      component: Login,
+      meta:{
+        title:'登录'
+      }
     },
   ]
 })

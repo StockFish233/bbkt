@@ -26,7 +26,7 @@
         </el-row>
         <el-row class="question-content">
             <el-col>  
-                <h4 style="text-align:left;margin:50px">常见问题</h4>                 
+                <h2 style="text-align:left;margin:50px">常见问题</h2>                 
                 <el-tabs :tab-position="tabPosition" >
                     
                     <el-tab-pane label="下载安装">
@@ -83,9 +83,9 @@ export default {
             list: [],
             loading: false,
             states: [
-                "Alabama", "Alaska", "Arizona",
-                "Arkansas", "California", "Colorado",
-                "Connecticut", "Delaware", "Florida",
+                "怎么下载安装", "需要下载其他软件吗？", "为什么无法安装？",
+                "下载及安装", "手机端的使用", "制作题目并上传",
+                "课堂使用", "Delaware", "Florida",
                 "Georgia", "Hawaii", "Idaho", "Illinois",
                 "Indiana", "Iowa", "Kansas", "Kentucky",
                 "Louisiana", "Maine", "Maryland",
